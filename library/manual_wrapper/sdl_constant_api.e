@@ -39,8 +39,9 @@ feature -- Access
 			-- SDL_INIT_JOYSTICK implies SDL_INIT_EVENTS
 
 	SDL_INIT_HAPTIC: INTEGER = 0x00001000
---   82  #define SDL_INIT_HAPTIC         0x00001000u
 
+
+	SDL_QUIT: INTEGER = 0x100
 
 -- The constant sdl_init_gamecontroller-- needs to be wrapped by hand
 -- Check the definition at -- C:\\home\\test\\wrap_sdl2\\library/C/include/SDL2/SDL.h

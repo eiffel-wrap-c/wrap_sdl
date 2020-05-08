@@ -184,7 +184,23 @@
         </wrapper>
       </rule>  
 
- 
+     <rule>
+        <match>
+          <identifier name="SDL_Event"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>  
+
+      <rule>
+        <match>
+          <identifier name="SDL_PollEvent"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>  
+
+
       <!-- And the rest should be ignored -->
     <rule>
       <match>
