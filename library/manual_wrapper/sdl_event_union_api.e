@@ -17,14 +17,14 @@ create
 
 feature -- Measurement
 
-	structure_size: INTEGER 
+	structure_size: INTEGER
 		do
 			Result := sizeof_external
 		end
 
 feature {ANY} -- Member Access
 
-	type: INTEGER 
+	type: INTEGER
 			-- Access member `type`
 		require
 			exists: exists
@@ -33,7 +33,7 @@ feature {ANY} -- Member Access
 		ensure
 			result_correct: Result = c_type (item)		end
 
-	set_type (a_value: INTEGER) 
+	set_type (a_value: INTEGER)
 			-- Change the value of member `type` to `a_value`.
 		require
 			exists: exists
@@ -48,7 +48,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_common (item) 
+			Result := c_common (item)
 		ensure
 		end
 
@@ -67,7 +67,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_display (item) 
+			Result := c_display (item)
 		ensure
 		end
 
@@ -86,7 +86,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_window (item) 
+			Result := c_window (item)
 		ensure
 		end
 
@@ -100,13 +100,12 @@ feature {ANY} -- Member Access
 		ensure
 			window_set: window = a_value 		end
 
-	key: POINTER
+	key: SDL_KEYBOARD_EVENT_STRUCT_API
 			-- Access member `key`
 		require
 			exists: exists
 		do
-			Result := c_key (item) 
-		ensure
+			create Result.make_by_pointer (c_key (item))
 		end
 
 	set_key (a_value: POINTER )
@@ -124,7 +123,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_edit (item) 
+			Result := c_edit (item)
 		ensure
 		end
 
@@ -143,7 +142,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_text (item) 
+			Result := c_text (item)
 		ensure
 		end
 
@@ -162,7 +161,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_motion (item) 
+			Result := c_motion (item)
 		ensure
 		end
 
@@ -181,7 +180,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_button (item) 
+			Result := c_button (item)
 		ensure
 		end
 
@@ -200,7 +199,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_wheel (item) 
+			Result := c_wheel (item)
 		ensure
 		end
 
@@ -219,7 +218,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_jaxis (item) 
+			Result := c_jaxis (item)
 		ensure
 		end
 
@@ -238,7 +237,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_jball (item) 
+			Result := c_jball (item)
 		ensure
 		end
 
@@ -257,7 +256,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_jhat (item) 
+			Result := c_jhat (item)
 		ensure
 		end
 
@@ -276,7 +275,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_jbutton (item) 
+			Result := c_jbutton (item)
 		ensure
 		end
 
@@ -295,7 +294,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_jdevice (item) 
+			Result := c_jdevice (item)
 		ensure
 		end
 
@@ -314,7 +313,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_caxis (item) 
+			Result := c_caxis (item)
 		ensure
 		end
 
@@ -333,7 +332,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_cbutton (item) 
+			Result := c_cbutton (item)
 		ensure
 		end
 
@@ -352,7 +351,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_cdevice (item) 
+			Result := c_cdevice (item)
 		ensure
 		end
 
@@ -371,7 +370,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_adevice (item) 
+			Result := c_adevice (item)
 		ensure
 		end
 
@@ -390,7 +389,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_sensor (item) 
+			Result := c_sensor (item)
 		ensure
 		end
 
@@ -409,7 +408,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_quit (item) 
+			Result := c_quit (item)
 		ensure
 		end
 
@@ -428,7 +427,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_user (item) 
+			Result := c_user (item)
 		ensure
 		end
 
@@ -447,7 +446,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_syswm (item) 
+			Result := c_syswm (item)
 		ensure
 		end
 
@@ -466,7 +465,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_tfinger (item) 
+			Result := c_tfinger (item)
 		ensure
 		end
 
@@ -485,7 +484,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_mgesture (item) 
+			Result := c_mgesture (item)
 		ensure
 		end
 
@@ -504,7 +503,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_dgesture (item) 
+			Result := c_dgesture (item)
 		ensure
 		end
 
@@ -523,7 +522,7 @@ feature {ANY} -- Member Access
 		require
 			exists: exists
 		do
-			Result := c_drop (item) 
+			Result := c_drop (item)
 		ensure
 		end
 
@@ -537,7 +536,7 @@ feature {ANY} -- Member Access
 		ensure
 			drop_set: drop = a_value 		end
 
-	padding: POINTER 
+	padding: POINTER
 			-- Access member `padding`
 		require
 			exists: exists
@@ -548,14 +547,14 @@ feature {ANY} -- Member Access
 
 feature {NONE} --C Implementation: union SDL_Event
 
-	sizeof_external: INTEGER 
+	sizeof_external: INTEGER
 		external
 			"C inline use <SDL.h>"
 		alias
 			"sizeof(union SDL_Event)"
 		end
 
-	c_type (an_item: POINTER): INTEGER 
+	c_type (an_item: POINTER): INTEGER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -566,7 +565,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_type (an_item: POINTER; a_value: INTEGER) 
+	set_c_type (an_item: POINTER; a_value: INTEGER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -577,7 +576,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_common (an_item: POINTER): POINTER 
+	c_common (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -588,7 +587,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_common (an_item: POINTER; a_value: POINTER) 
+	set_c_common (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -599,7 +598,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_display (an_item: POINTER): POINTER 
+	c_display (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -610,7 +609,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_display (an_item: POINTER; a_value: POINTER) 
+	set_c_display (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -621,7 +620,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_window (an_item: POINTER): POINTER 
+	c_window (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -632,7 +631,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_window (an_item: POINTER; a_value: POINTER) 
+	set_c_window (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -643,7 +642,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_key (an_item: POINTER): POINTER 
+	c_key (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -654,7 +653,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_key (an_item: POINTER; a_value: POINTER) 
+	set_c_key (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -665,7 +664,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_edit (an_item: POINTER): POINTER 
+	c_edit (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -676,7 +675,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_edit (an_item: POINTER; a_value: POINTER) 
+	set_c_edit (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -687,7 +686,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_text (an_item: POINTER): POINTER 
+	c_text (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -698,7 +697,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_text (an_item: POINTER; a_value: POINTER) 
+	set_c_text (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -709,7 +708,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_motion (an_item: POINTER): POINTER 
+	c_motion (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -720,7 +719,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_motion (an_item: POINTER; a_value: POINTER) 
+	set_c_motion (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -731,7 +730,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_button (an_item: POINTER): POINTER 
+	c_button (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -742,7 +741,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_button (an_item: POINTER; a_value: POINTER) 
+	set_c_button (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -753,7 +752,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_wheel (an_item: POINTER): POINTER 
+	c_wheel (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -764,7 +763,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_wheel (an_item: POINTER; a_value: POINTER) 
+	set_c_wheel (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -775,7 +774,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_jaxis (an_item: POINTER): POINTER 
+	c_jaxis (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -786,7 +785,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_jaxis (an_item: POINTER; a_value: POINTER) 
+	set_c_jaxis (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -797,7 +796,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_jball (an_item: POINTER): POINTER 
+	c_jball (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -808,7 +807,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_jball (an_item: POINTER; a_value: POINTER) 
+	set_c_jball (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -819,7 +818,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_jhat (an_item: POINTER): POINTER 
+	c_jhat (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -830,7 +829,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_jhat (an_item: POINTER; a_value: POINTER) 
+	set_c_jhat (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -841,7 +840,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_jbutton (an_item: POINTER): POINTER 
+	c_jbutton (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -852,7 +851,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_jbutton (an_item: POINTER; a_value: POINTER) 
+	set_c_jbutton (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -863,7 +862,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_jdevice (an_item: POINTER): POINTER 
+	c_jdevice (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -874,7 +873,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_jdevice (an_item: POINTER; a_value: POINTER) 
+	set_c_jdevice (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -885,7 +884,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_caxis (an_item: POINTER): POINTER 
+	c_caxis (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -896,7 +895,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_caxis (an_item: POINTER; a_value: POINTER) 
+	set_c_caxis (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -907,7 +906,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_cbutton (an_item: POINTER): POINTER 
+	c_cbutton (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -918,7 +917,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_cbutton (an_item: POINTER; a_value: POINTER) 
+	set_c_cbutton (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -929,7 +928,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_cdevice (an_item: POINTER): POINTER 
+	c_cdevice (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -940,7 +939,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_cdevice (an_item: POINTER; a_value: POINTER) 
+	set_c_cdevice (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -951,7 +950,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_adevice (an_item: POINTER): POINTER 
+	c_adevice (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -962,7 +961,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_adevice (an_item: POINTER; a_value: POINTER) 
+	set_c_adevice (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -973,7 +972,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_sensor (an_item: POINTER): POINTER 
+	c_sensor (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -984,7 +983,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_sensor (an_item: POINTER; a_value: POINTER) 
+	set_c_sensor (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -995,7 +994,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_quit (an_item: POINTER): POINTER 
+	c_quit (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1006,7 +1005,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_quit (an_item: POINTER; a_value: POINTER) 
+	set_c_quit (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1017,7 +1016,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_user (an_item: POINTER): POINTER 
+	c_user (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1028,7 +1027,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_user (an_item: POINTER; a_value: POINTER) 
+	set_c_user (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1039,7 +1038,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_syswm (an_item: POINTER): POINTER 
+	c_syswm (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1050,7 +1049,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_syswm (an_item: POINTER; a_value: POINTER) 
+	set_c_syswm (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1061,7 +1060,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_tfinger (an_item: POINTER): POINTER 
+	c_tfinger (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1072,7 +1071,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_tfinger (an_item: POINTER; a_value: POINTER) 
+	set_c_tfinger (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1083,7 +1082,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_mgesture (an_item: POINTER): POINTER 
+	c_mgesture (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1094,7 +1093,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_mgesture (an_item: POINTER; a_value: POINTER) 
+	set_c_mgesture (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1105,7 +1104,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_dgesture (an_item: POINTER): POINTER 
+	c_dgesture (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1116,7 +1115,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_dgesture (an_item: POINTER; a_value: POINTER) 
+	set_c_dgesture (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1127,7 +1126,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_drop (an_item: POINTER): POINTER 
+	c_drop (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1138,7 +1137,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	set_c_drop (an_item: POINTER; a_value: POINTER) 
+	set_c_drop (an_item: POINTER; a_value: POINTER)
 		require
 			an_item_not_null: an_item /= default_pointer
 		external
@@ -1149,7 +1148,7 @@ feature {NONE} --C Implementation: union SDL_Event
 			]"
 		end
 
-	c_padding (an_item: POINTER): POINTER 
+	c_padding (an_item: POINTER): POINTER
 		require
 			an_item_not_null: an_item /= default_pointer
 		external

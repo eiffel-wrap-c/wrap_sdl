@@ -88,7 +88,19 @@
 				<exclude>/c$</exclude>
 				<exclude>/include$</exclude>
 				<exclude>/EIFGENs$</exclude>
+				<exclude>/win$</exclude>
+				<exclude>/linux$</exclude>
 			</file_rule>
+		</cluster>
+		<cluster name="generated_win" location="generated_wrapper\eiffel\win" recursive="true">
+			<condition>
+				<platform value="windows"/>
+			</condition>
+		</cluster>
+		<cluster name="generated_linux" location="generated_wrapper\eiffel\linux" recursive="true">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
 		</cluster>
 	</target>
 	<target name="wrap_sdl2_tests" extends="wrap_sdl2">

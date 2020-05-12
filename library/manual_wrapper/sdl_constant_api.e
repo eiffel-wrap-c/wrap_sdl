@@ -67,6 +67,9 @@ feature -- Access
 	sdl_true: INTEGER_64 = 1
 
 
+	SDL_KEYDOWN: INTEGER = 0x300
+
+
 -- The constant sdl_max_sint8-- needs to be wrapped by hand
 -- Check the definition at -- c:\\home\\test\\wrap_sdl2\\library\\c\\include\\sdl2\\SDL_stdinc.h
 

@@ -32,10 +32,10 @@ feature {NONE} -- Initialization
 			then
 					-- Apply the image
 				res := {SDL_SURFACE}.sdl_upper_blit (l_hello_world, Void, l_screen_surface, Void)
-				res := (create {SDL_VIDEO_FUNCTIONS_API}).sdl_update_window_surface (l_window)
+				res := {SDL_VIDEO_FUNCTIONS_API}.sdl_update_window_surface (l_window)
 
-            	{SDL_TIMER_FUNCTIONS_API}.sdl_delay (10000)
-					-- Wait 10 seconds
+            	{SDL_TIMER_FUNCTIONS_API}.sdl_delay (5000)
+					-- Wait 5 seconds
 			end
 			close
 		end
@@ -44,7 +44,7 @@ feature {NONE} -- Initialization
 			-- Starts up SDL and creates window
 		do
 				-- Initialize SDL
-			if sdl.sdl_init ({SDL_CONSTANT_API}.SDL_INIT_VIDEO) < 0 then
+			if {SDL_FUNCTIONS_API}.sdl_init ({SDL_CONSTANT_API}.SDL_INIT_VIDEO) < 0 then
 				print ("SDL could not initialize! SDL_Error: " + (create {SDL_ERROR}).sdl_get_error);
 				{EXCEPTIONS}.die (1)
 			else
@@ -54,11 +54,11 @@ feature {NONE} -- Initialization
 					screen_surface := (create {SDL_VIDEO}).sdl_get_window_surface (l_window)
 						-- Get window surface
 					if screen_surface = Void then
-						print ("Surface could not be getted! SDL_Error: " + (create {SDL_ERROR}).sdl_get_error)
+						print ("Surface could not be getted! SDL_Error: " + {SDL_ERROR}.sdl_get_error)
 						{EXCEPTIONS}.die (1)
 					end
 				else
-					print ("Window could not be created! SDL_Error: " + (create {SDL_ERROR}).sdl_get_error)
+					print ("Window could not be created! SDL_Error: " + {SDL_ERROR}.sdl_get_error)
 					{EXCEPTIONS}.die (1)
 				end
 			end
@@ -73,13 +73,13 @@ feature {NONE} -- Initialization
 			l_ptr := {SDL_RWOPS_FUNCTIONS_API}.sdl_rwfrom_file ((create {C_STRING}.make ("hello_world.bmp")).item, (create {C_STRING}.make ("rb")).item)
 			if l_ptr /= default_pointer then
 				create rwops.make_by_pointer (l_ptr)
-				hello_world := (create {SDL_SURFACE_FUNCTIONS_API}).sdl_load_bmp_rw (rwops, 1)
+				hello_world := {SDL_SURFACE_FUNCTIONS_API}.sdl_load_bmp_rw (rwops, 1)
 				if hello_world = Void then
-					print ("Unable to load image 02_getting_an_image_on_the_screen/hello_world.bmp " + (create {SDL_ERROR}).sdl_get_error + "%N")
+					print ("Unable to load image 02_getting_an_image_on_the_screen/hello_world.bmp " + {SDL_ERROR}.sdl_get_error + "%N")
 					{EXCEPTIONS}.die (1)
 				end
 			else
-				print ("Unable to load image 02_getting_an_image_on_the_screen/hello_world.bmp " + (create {SDL_ERROR}).sdl_get_error + "%N")
+				print ("Unable to load image 02_getting_an_image_on_the_screen/hello_world.bmp " +  {SDL_ERROR}.sdl_get_error + "%N")
 				{EXCEPTIONS}.die (1)
 			end
 		end
@@ -89,10 +89,10 @@ feature {NONE} -- Initialization
 			-- Clean up the code
 		do
 			if attached hello_world as l_hello_world then
-				(create {SDL_SURFACE_FUNCTIONS_API}).sdl_free_surface (l_hello_world)
+				{SDL_SURFACE_FUNCTIONS_API}.sdl_free_surface (l_hello_world)
 			end
 			if attached window as l_window then
-				(create {SDL_VIDEO_FUNCTIONS_API}).sdl_destroy_window (l_window)
+				{SDL_VIDEO_FUNCTIONS_API}.sdl_destroy_window (l_window)
 			end
 			{SDL_FUNCTIONS_API}.sdl_quit
 
@@ -114,10 +114,4 @@ feature {NONE} -- Implementation
 	SCREEN_WIDTH: INTEGER = 640
 	SCREEN_HEIGHT: INTEGER = 480
 			-- Screen dimension constants.
-
-	sdl: SDL_FUNCTIONS_API
-		once
-			create Result
-		end
-
 end

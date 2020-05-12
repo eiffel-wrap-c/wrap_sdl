@@ -1,0 +1,24 @@
+note
+	description: "Summary description for {KEY_PRESS_SURFACE_ENUM}."
+	author: ""
+	date: "$Date$"
+	revision: "$Revision$"
+
+class
+	KEY_PRESS_SURFACE_ENUM
+
+feature -- Access
+
+	KEY_PRESS_SURFACE_DEFAULT: INTEGER = 1
+
+	KEY_PRESS_SURFACE_UP: INTEGER = 2
+
+	KEY_PRESS_SURFACE_DOWN: INTEGER = 3
+
+	KEY_PRESS_SURFACE_LEFT: INTEGER = 4
+
+	KEY_PRESS_SURFACE_RIGHT: INTEGER = 5
+
+	KEY_PRESS_SURFACE_TOTAL: INTEGER = 6
+
+end

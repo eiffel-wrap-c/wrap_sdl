@@ -51,4 +51,4 @@ The examples are based on the following SDL tutorial  http://lazyfoo.net/tutoria
 * [Hello sdl](examples/01_hello_sdl)   												`Shows how to create a window`.
 * [Getting an image on the screen](examples/02_getting_an_image_on_the_screen)   	`Shows how to gets an image on the screen`.
 * [Event Driven Programming](examples/03_event_driven_programming)   				`Shows how to handling user input by allowing the user to X out the window`.
-
+* [Key presses](examples/04_key_presses)   											`Shows different images appear depending on which key you press`.

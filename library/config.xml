@@ -16,6 +16,14 @@
     	  <!-- To learn more read: https://github.com/eiffel-wrap-c/WrapC/blob/master/doc/Readme.md#config_file-->
 
      
+      <rule>
+        <match>
+          <identifier name="SDL_.*Event"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>  
+
       
       <rule>
         <match>
@@ -195,6 +203,14 @@
       <rule>
         <match>
           <identifier name="SDL_PollEvent"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>  
+
+      <rule>
+        <match>
+          <identifier name="SDL_Load.*"/>
         </match>
         <wrapper type="default">
         </wrapper>

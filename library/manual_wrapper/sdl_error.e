@@ -26,5 +26,7 @@ feature -- Access
 			if l_ptr /= default_pointer then
 				create Result.make_from_c (l_ptr)
 			end
+		ensure
+			instance_free: class
 		end
 end

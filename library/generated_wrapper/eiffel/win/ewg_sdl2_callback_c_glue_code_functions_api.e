@@ -12,6 +12,8 @@ feature -- Access
 	set_sdl_windows_message_hook_object (a_class: POINTER) 
 		do
 			c_set_sdl_windows_message_hook_object (a_class)
+		ensure
+			instance_free: class
 		end
 
 	release_sdl_windows_message_hook_object
@@ -53,21 +55,29 @@ feature -- Access
 	set_sdl_windows_message_hook_entry_1 (a_feature: POINTER) 
 		do
 			c_set_sdl_windows_message_hook_entry_1 (a_feature)
+		ensure
+			instance_free: class
 		end
 
 	set_sdl_windows_message_hook_entry_2 (a_feature: POINTER) 
 		do
 			c_set_sdl_windows_message_hook_entry_2 (a_feature)
+		ensure
+			instance_free: class
 		end
 
 	set_sdl_windows_message_hook_entry_3 (a_feature: POINTER) 
 		do
 			c_set_sdl_windows_message_hook_entry_3 (a_feature)
+		ensure
+			instance_free: class
 		end
 
 	call_sdl_windows_message_hook (a_function: POINTER; userdata: POINTER; hwnd: POINTER; message: INTEGER; wparam: INTEGER; lparam: INTEGER) 
 		do
 			c_call_sdl_windows_message_hook (a_function, userdata, hwnd, message, wparam, lparam)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals
