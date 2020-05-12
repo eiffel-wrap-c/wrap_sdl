@@ -175,6 +175,7 @@ feature {NONE} -- Initialization
 				i = key_press_surfaces.count
 			loop
 				{SDL_SURFACE_FUNCTIONS_API}.sdl_free_surface (key_press_surfaces [i])
+				i := i + 1
 			end
 
 			if attached window as l_window then
