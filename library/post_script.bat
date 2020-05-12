@@ -8,7 +8,7 @@ rem copy Makefile script
 rem copy Makefile-win.SH  .\generated_wrapper\c\src -- example
 
 cd generated_wrapper/eiffel/
-del /f sdl_constant_api.e.
+del /f sdl_constant_api.e
 cd ..
 cd ..
 

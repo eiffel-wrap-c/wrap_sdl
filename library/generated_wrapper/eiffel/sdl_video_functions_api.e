@@ -24,16 +24,22 @@ feature -- Access
 				create Result.make_by_pointer ( l_ptr )
 			end
 
+		ensure
+			instance_free: class
 		end
 
 	sdl_update_window_surface (window: SDL_WINDOW_STRUCT_API): INTEGER 
 		do
 			Result := c_sdl_update_window_surface (window.item)
+		ensure
+			instance_free: class
 		end
 
 	sdl_destroy_window (window: SDL_WINDOW_STRUCT_API) 
 		do
 			c_sdl_destroy_window (window.item)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals

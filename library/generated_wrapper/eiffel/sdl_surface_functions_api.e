@@ -12,6 +12,8 @@ feature -- Access
 	sdl_free_surface (surface: SDL_SURFACE_STRUCT_API) 
 		do
 			c_sdl_free_surface (surface.item)
+		ensure
+			instance_free: class
 		end
 
 	sdl_load_bmp_rw (src: SDL_RWOPS_STRUCT_API; freesrc: INTEGER): detachable SDL_SURFACE_STRUCT_API 
@@ -20,16 +22,22 @@ feature -- Access
 				create Result.make_by_pointer ( l_ptr )
 			end
 
+		ensure
+			instance_free: class
 		end
 
 	sdl_fill_rect (dst: SDL_SURFACE_STRUCT_API; rect: SDL_RECT_STRUCT_API; color: INTEGER): INTEGER 
 		do
 			Result := c_sdl_fill_rect (dst.item, rect.item, color)
+		ensure
+			instance_free: class
 		end
 
 	sdl_upper_blit (src: SDL_SURFACE_STRUCT_API; srcrect: SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER 
 		do
 			Result := c_sdl_upper_blit (src.item, srcrect.item, dst.item, dstrect.item)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals

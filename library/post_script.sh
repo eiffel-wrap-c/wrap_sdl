@@ -9,5 +9,11 @@
 #copy Makefile
 #cp Makefile.SH  ./generated_wrapper/c/src                          --example
 
+cd generated_wrapper/eiffel/
+rm  sdl_constant_api.e
+cd ..
+cd ..
+
+
 cd generated_wrapper/c/src/
 finish_freezing -library

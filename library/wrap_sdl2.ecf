@@ -30,6 +30,12 @@
 		</external_include>
 
 		
+		<!-- Include headers for the C target library -->
+		<external_include location="/usr/local/include/SDL2">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>		
+		</external_include>
 	
 		
 		<!-- Manual Wrapper add this only if it's needed 
@@ -61,7 +67,7 @@
 
 
 		<!-- External C library -->
-		<external_object location="/usr/local/lib/sdl2.so">
+		<external_object location="/usr/local/lib/libSDL2.so">
 			<condition>
 				<platform excluded_value="windows"/>
 			</condition>

@@ -21,6 +21,8 @@ feature -- Access
 	sdl_load_file_rw (src: SDL_RWOPS_STRUCT_API; datasize: POINTER; freesrc: INTEGER): POINTER 
 		do
 			Result := c_sdl_load_file_rw (src.item, datasize, freesrc)
+		ensure
+			instance_free: class
 		end
 
 	sdl_load_file (file: STRING; datasize: POINTER): POINTER 
@@ -29,6 +31,8 @@ feature -- Access
 		do
 			create file_c_string.make (file)
 			Result := c_sdl_load_file (file_c_string.item, datasize)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals

@@ -24,6 +24,8 @@ feature -- Access
 		do
 			create name_c_string.make (name)
 			Result := c_sdl_load_function (handle, name_c_string.item)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals

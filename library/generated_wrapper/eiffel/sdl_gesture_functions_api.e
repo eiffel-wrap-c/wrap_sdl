@@ -12,6 +12,8 @@ feature -- Access
 	sdl_load_dollar_templates (touchid: INTEGER; src: SDL_RWOPS_STRUCT_API): INTEGER 
 		do
 			Result := c_sdl_load_dollar_templates (touchid, src.item)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals

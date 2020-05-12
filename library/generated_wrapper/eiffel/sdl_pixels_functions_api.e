@@ -12,6 +12,8 @@ feature -- Access
 	sdl_map_rgb (format: SDL_PIXEL_FORMAT_STRUCT_API; r: INTEGER; g: INTEGER; b: INTEGER): INTEGER 
 		do
 			Result := c_sdl_map_rgb (format.item, r, g, b)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals

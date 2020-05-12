@@ -12,6 +12,8 @@ feature -- Access
 	sdl_poll_event (event: SDL_EVENT_UNION_API): INTEGER 
 		do
 			Result := c_sdl_poll_event (event.item)
+		ensure
+			instance_free: class
 		end
 
 feature -- Externals
