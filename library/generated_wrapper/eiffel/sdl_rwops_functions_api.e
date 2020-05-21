@@ -25,7 +25,7 @@ feature -- Access
 			instance_free: class
 		end
 
-	sdl_load_file (file: STRING; datasize: POINTER): POINTER 
+	sdl_load_file (file: STRING_8; datasize: POINTER): POINTER 
 		local
 			file_c_string: C_STRING
 		do

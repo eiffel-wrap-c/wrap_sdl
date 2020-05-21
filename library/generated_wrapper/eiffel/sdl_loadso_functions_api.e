@@ -18,7 +18,7 @@ feature -- Access
 			]"
 		end
 
-	sdl_load_function (handle: POINTER; name: STRING): POINTER 
+	sdl_load_function (handle: POINTER; name: STRING_8): POINTER 
 		local
 			name_c_string: C_STRING
 		do
