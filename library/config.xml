@@ -216,8 +216,23 @@
         </wrapper>
       </rule>  
 
+      <rule>
+        <match>
+          <identifier name="SDL_ConvertSurface"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>  
+      
+      <rule>
+        <match>
+          <identifier name="SDL_.*BlitScaled"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>  
 
-      <!-- And the rest should be ignored -->
+     <!-- And the rest should be ignored -->
     <rule>
       <match>
       </match>

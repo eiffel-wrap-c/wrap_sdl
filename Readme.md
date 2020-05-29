@@ -53,6 +53,8 @@ The examples are based on the following SDL tutorial  http://lazyfoo.net/tutoria
 * [Event Driven Programming](examples/03_event_driven_programming)   				`Shows how to handling user input by allowing the user to X out the window`.
 * [Key presses](examples/04_key_presses)   											`Shows different images appear depending on which key you press`.
 
+* [Optimized Surface Loading and Soft Stretching](examples/05_optimized_surface_loading_and_soft_stretching)   		`Shows Optimized Surface Loading and Soft Stretching`.
+
 ### How to compile the C library glue code.
 
 Before to use the examples you will need to compile the C glue code, go to 

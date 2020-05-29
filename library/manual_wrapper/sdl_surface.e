@@ -11,7 +11,9 @@ inherit
 	SDL_SURFACE_FUNCTIONS_API
 		rename
 			sdl_fill_rect as sdl_fill_rect_api,
-			sdl_upper_blit as sdl_upper_blit_api
+			sdl_upper_blit as sdl_upper_blit_api,
+			sdl_convert_surface as sdl_convert_surface_api,
+			sdl_upper_blit_scaled as sdl_upper_blit_scaled_api
 		end
 
 
@@ -44,6 +46,36 @@ feature	-- Access
 		ensure
 			instance_free: class
 		end
+
+	sdl_convert_surface (src: SDL_SURFACE_STRUCT_API; fmt: detachable SDL_PIXEL_FORMAT_STRUCT_API; flags: INTEGER): detachable SDL_SURFACE_STRUCT_API
+		local
+			l_fmt_ptr: POINTER
+		do
+			if attached fmt as l_fmt then
+				l_fmt_ptr := l_fmt.item
+			end
+			if attached c_sdl_convert_surface (src.item, l_fmt_ptr, flags) as l_ptr and then not l_ptr.is_default_pointer then
+				create Result.make_by_pointer ( l_ptr )
+			end
+
+		ensure
+			instance_free: class
+		end
+
+
+	sdl_upper_blit_scaled (src: SDL_SURFACE_STRUCT_API; srcrect: detachable SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER
+		local
+			l_srcrect_ptr: POINTER
+		do
+			if attached srcrect as l_srcrect then
+				l_srcrect_ptr := l_srcrect.item
+			end
+			Result := c_sdl_upper_blit_scaled (src.item, l_srcrect_ptr, dst.item, dstrect.item)
+		ensure
+			instance_free: class
+		end
+
+
 
 
 end

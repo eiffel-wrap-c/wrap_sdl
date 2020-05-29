@@ -26,6 +26,16 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_convert_surface (src: SDL_SURFACE_STRUCT_API; fmt: SDL_PIXEL_FORMAT_STRUCT_API; flags: INTEGER): detachable SDL_SURFACE_STRUCT_API 
+		do
+			if attached c_sdl_convert_surface (src.item, fmt.item, flags) as l_ptr and then not l_ptr.is_default_pointer then
+				create Result.make_by_pointer ( l_ptr )
+			end
+
+		ensure
+			instance_free: class
+		end
+
 	sdl_fill_rect (dst: SDL_SURFACE_STRUCT_API; rect: SDL_RECT_STRUCT_API; color: INTEGER): INTEGER 
 		do
 			Result := c_sdl_fill_rect (dst.item, rect.item, color)
@@ -36,6 +46,20 @@ feature -- Access
 	sdl_upper_blit (src: SDL_SURFACE_STRUCT_API; srcrect: SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER 
 		do
 			Result := c_sdl_upper_blit (src.item, srcrect.item, dst.item, dstrect.item)
+		ensure
+			instance_free: class
+		end
+
+	sdl_upper_blit_scaled (src: SDL_SURFACE_STRUCT_API; srcrect: SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_upper_blit_scaled (src.item, srcrect.item, dst.item, dstrect.item)
+		ensure
+			instance_free: class
+		end
+
+	sdl_lower_blit_scaled (src: SDL_SURFACE_STRUCT_API; srcrect: SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_lower_blit_scaled (src.item, srcrect.item, dst.item, dstrect.item)
 		ensure
 			instance_free: class
 		end
@@ -60,6 +84,15 @@ feature -- Externals
 			]"
 		end
 
+	c_sdl_convert_surface (src: POINTER; fmt: POINTER; flags: INTEGER): POINTER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_ConvertSurface ((SDL_Surface*)$src, (SDL_PixelFormat const*)$fmt, (Uint32)$flags);
+			]"
+		end
+
 	c_sdl_fill_rect (dst: POINTER; rect: POINTER; color: INTEGER): INTEGER
 		external
 			"C inline use <SDL.h>"
@@ -75,6 +108,24 @@ feature -- Externals
 		alias
 			"[
 				return SDL_UpperBlit ((SDL_Surface*)$src, (SDL_Rect const*)$srcrect, (SDL_Surface*)$dst, (SDL_Rect*)$dstrect);
+			]"
+		end
+
+	c_sdl_upper_blit_scaled (src: POINTER; srcrect: POINTER; dst: POINTER; dstrect: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_UpperBlitScaled ((SDL_Surface*)$src, (SDL_Rect const*)$srcrect, (SDL_Surface*)$dst, (SDL_Rect*)$dstrect);
+			]"
+		end
+
+	c_sdl_lower_blit_scaled (src: POINTER; srcrect: POINTER; dst: POINTER; dstrect: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_LowerBlitScaled ((SDL_Surface*)$src, (SDL_Rect*)$srcrect, (SDL_Surface*)$dst, (SDL_Rect*)$dstrect);
 			]"
 		end
 
