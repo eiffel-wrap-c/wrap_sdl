@@ -8,8 +8,8 @@ Simple DirectMedia Layer is a cross-platform development library designed to pro
 ## Requirements 
 
 *  [WrapC](https://github.com/eiffel-wrap-c/WrapC) tool.
-*   [SDL API](https://www.libsdl.org/) 
-
+*  [SDL API](https://www.libsdl.org/) 
+*  [SDL Image API](https://www.libsdl.org/projects/SDL_image/) -- Extension 
 
 ## Download and  Install
 Check the following link to learn more about SDL installation https://wiki.libsdl.org/Installation
@@ -39,6 +39,7 @@ Optionally you can use [vckpg](https://github.com/Microsoft/vcpkg), a C++ Librar
 Using vcpkg (https://github.com/microsoft/vcpkg) tool, you can install lib sdl2 library
 
 	vcpkg install sdl2:x64-windows
+	vcpkg install sdl2-image:x64-windows
 
 ## Status
 
@@ -52,20 +53,25 @@ The examples are based on the following SDL tutorial  http://lazyfoo.net/tutoria
 * [Getting an image on the screen](examples/02_getting_an_image_on_the_screen)   	`Shows how to gets an image on the screen`.
 * [Event Driven Programming](examples/03_event_driven_programming)   				`Shows how to handling user input by allowing the user to X out the window`.
 * [Key presses](examples/04_key_presses)   											`Shows different images appear depending on which key you press`.
-
 * [Optimized Surface Loading and Soft Stretching](examples/05_optimized_surface_loading_and_soft_stretching)   		`Shows Optimized Surface Loading and Soft Stretching`.
+* [Extension loading PNG's images](examples/06_extension_libraries_and_loading_other_image_formats)   		`Shows how to load PNGs images with SDL_image`.
+
 
 ### How to compile the C library glue code.
 
 Before to use the examples you will need to compile the C glue code, go to 
 
-	library/generated_wrapper/c/src
+	sld/generated_wrapper/c/src
+
+	and
+
+	sld_image/generated_wrapper/c/src
 
 and run
 
 	finish_freezing --library
 
-It will copy the C lib `eif_libgit2.a` to `$ECF_CONFIG_PATH/C/spec/$(ISE_PLATFORM)/lib/`  or `eif_libgit2.lib`  to `$ECF_CONFIG_PATH/C/spec/$ISE_C_COMPILER/$ISE_PLATFORM/lib` 
+It will copy the C lib `eif_sdl.a` to `$ECF_CONFIG_PATH/C/spec/$(ISE_PLATFORM)/lib/`  or `eif_sdl.lib`  to `$ECF_CONFIG_PATH/C/spec/$ISE_C_COMPILER/$ISE_PLATFORM/lib` 
 
 
 
