@@ -14,6 +14,9 @@ del /f sdl_color_struct_api.e
 del /f sdl_rwops_struct_api.e
 del /f sdl_surface_struct_api.e
 del /f sdl_rect_struct_api.e
+del /f sdl_renderer_struct_api.e
+del /f sdl_texture_struct_api.e
+
 cd ..
 cd ..
 

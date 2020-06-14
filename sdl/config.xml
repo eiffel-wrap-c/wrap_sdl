@@ -230,7 +230,74 @@
         </match>
         <wrapper type="default">
         </wrapper>
-      </rule>  
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_SetHint.*"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_CreateRenderer"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_Renderer.*"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_SetRenderDrawColor"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_CreateTextureFromSurface"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_DestroyTexture"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_DestroyRenderer"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+      <rule>
+        <match>
+          <identifier name="SDL_Render.*"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
+
+
+
 
      <!-- And the rest should be ignored -->
     <rule>
