@@ -55,8 +55,8 @@ The examples are based on the following SDL tutorial  http://lazyfoo.net/tutoria
 * [Key presses](examples/04_key_presses)   											`Shows different images appear depending on which key you press`.
 * [Optimized Surface Loading and Soft Stretching](examples/05_optimized_surface_loading_and_soft_stretching)   		`Shows Optimized Surface Loading and Soft Stretching`.
 * [Extension loading PNG's images](examples/06_extension_libraries_and_loading_other_image_formats)   		`Shows how to load PNGs images with SDL_image`.
-* [Texture Loading and Rendering
-](examples/07_texture_loading_and_rendering)   		`Shows how to texture loading and rendering`.
+* [Texture Loading and Rendering](examples/07_texture_loading_and_rendering)   		`Shows how to texture loading and rendering`.
+* [Geometry Rendering](examples/08_geometry_rendering)   		`Shows SDL2 new feature, hardware accelerated primitive rendering`.
 
 
 ### How to compile the C library glue code.
