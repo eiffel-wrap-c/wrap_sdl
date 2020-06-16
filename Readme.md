@@ -16,6 +16,7 @@ Check the following link to learn more about SDL installation https://wiki.libsd
 
 ### Linux
 
+#### SDL
 Download the [release-2.0.12](https://hg.libsdl.org/SDL/rev/355a4f94a782)  https://hg.libsdl.org/SDL
 	
 	tar -xvf SDL-355a4f94a782.tar.gz
@@ -31,7 +32,24 @@ Download the [release-2.0.12](https://hg.libsdl.org/SDL/rev/355a4f94a782)  https
 Rebuild the ldconfig cache using
  
  	sudo ldconfig 
+
+#### SDL_image
+Download the [release-2.0.12](https://hg.libsdl.org/SDL_image/archive/tip.tar.gz)  https://hg.libsdl.org/SDL_image/
+	
+	tar -xvf SDL_image-59a4c1ea96f3.tar.gz
+
+	cd  SDL_image-59a4c1ea96f3
+
+	mkdir build
+	cd build
+	../configure
+	make
+	sudo make install
+
+Rebuild the ldconfig cache using
  
+ 	sudo ldconfig 
+
 Optionally you can use [vckpg](https://github.com/Microsoft/vcpkg), a C++ Library Manager for Windows, Linux, and MacOS.
 
 ### Windows
