@@ -188,6 +188,11 @@ feature {NONE} -- Initialization
 			-- Clean up the code
 		do
 
+				-- free loaded image
+			if attached texture as l_texture then
+				{SDL_RENDER_FUNCTIONS_API}.sdl_destroy_texture (l_texture)
+			end
+
 				-- destroy window
 			if attached renderer as l_renderer then
 				{SDL_RENDER_FUNCTIONS_API}.sdl_destroy_renderer (l_renderer)

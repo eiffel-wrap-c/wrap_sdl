@@ -26,6 +26,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_set_color_key (surface: SDL_SURFACE_STRUCT_API; flag: INTEGER; key: INTEGER): INTEGER 
+		do
+			Result := c_sdl_set_color_key (surface.item, flag, key)
+		ensure
+			instance_free: class
+		end
+
 	sdl_convert_surface (src: SDL_SURFACE_STRUCT_API; fmt: SDL_PIXEL_FORMAT_STRUCT_API; flags: INTEGER): detachable SDL_SURFACE_STRUCT_API 
 		do
 			if attached c_sdl_convert_surface (src.item, fmt.item, flags) as l_ptr and then not l_ptr.is_default_pointer then
@@ -81,6 +88,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_LoadBMP_RW ((SDL_RWops*)$src, (int)$freesrc);
+			]"
+		end
+
+	c_sdl_set_color_key (surface: POINTER; flag: INTEGER; key: INTEGER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_SetColorKey ((SDL_Surface*)$surface, (int)$flag, (Uint32)$key);
 			]"
 		end
 

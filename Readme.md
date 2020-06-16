@@ -58,6 +58,7 @@ The examples are based on the following SDL tutorial  http://lazyfoo.net/tutoria
 * [Texture Loading and Rendering](examples/07_texture_loading_and_rendering)   		`Shows how to texture loading and rendering`.
 * [Geometry Rendering](examples/08_geometry_rendering)   		`Shows SDL2 new feature, hardware accelerated primitive rendering`.
 * [Viewport](examples/09_viewport)   		`SDL 2.0 also lets you control where you render on the screen using the viewport`.
+* [Color Keying](examples/10_color_keying)   		`Shows how to use color keying to give textures transparent backgrounds.`.
 
 
 ### How to compile the C library glue code.

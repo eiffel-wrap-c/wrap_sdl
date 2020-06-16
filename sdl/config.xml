@@ -296,6 +296,13 @@
         </wrapper>
       </rule> 
 
+      <rule>
+        <match>
+          <identifier name="SDL_SetColor.*"/>
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule> 
 
 
 
