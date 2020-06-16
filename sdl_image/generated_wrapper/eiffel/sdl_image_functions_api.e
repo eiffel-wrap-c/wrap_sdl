@@ -414,6 +414,55 @@ feature -- Access
 			instance_free: class
 		end
 
+	img_load_animation (file: POINTER): POINTER
+		external
+			"C inline use <SDL_image.h>"
+		alias
+			"[
+				return IMG_LoadAnimation ((char const*)$file);
+			]"
+		end
+
+	img_load_animation_rw (src: SDL_RWOPS_STRUCT_API; freesrc: INTEGER): detachable IMG_ANIMATION_STRUCT_API 
+		do
+			if attached c_img_load_animation_rw (src.item, freesrc) as l_ptr and then not l_ptr.is_default_pointer then
+				create Result.make_by_pointer ( l_ptr )
+			end
+
+		ensure
+			instance_free: class
+		end
+
+	img_load_animation_typed_rw (src: SDL_RWOPS_STRUCT_API; freesrc: INTEGER; type: STRING_8): detachable IMG_ANIMATION_STRUCT_API 
+		local
+			type_c_string: C_STRING
+		do
+			create type_c_string.make (type)
+			if attached c_img_load_animation_typed_rw (src.item, freesrc, type_c_string.item) as l_ptr and then not l_ptr.is_default_pointer then
+				create Result.make_by_pointer ( l_ptr )
+			end
+
+		ensure
+			instance_free: class
+		end
+
+	img_free_animation (anim: IMG_ANIMATION_STRUCT_API) 
+		do
+			c_img_free_animation (anim.item)
+		ensure
+			instance_free: class
+		end
+
+	img_load_gifanimation_rw (src: SDL_RWOPS_STRUCT_API): detachable IMG_ANIMATION_STRUCT_API 
+		do
+			if attached c_img_load_gifanimation_rw (src.item) as l_ptr and then not l_ptr.is_default_pointer then
+				create Result.make_by_pointer ( l_ptr )
+			end
+
+		ensure
+			instance_free: class
+		end
+
 feature -- Externals
 
 	c_img_linked_version: POINTER
@@ -791,6 +840,42 @@ feature -- Externals
 		alias
 			"[
 				return IMG_SaveJPG_RW ((SDL_Surface*)$surface, (SDL_RWops*)$dst, (int)$freedst, (int)$quality);
+			]"
+		end
+
+	c_img_load_animation_rw (src: POINTER; freesrc: INTEGER): POINTER
+		external
+			"C inline use <SDL_image.h>"
+		alias
+			"[
+				return IMG_LoadAnimation_RW ((SDL_RWops*)$src, (int)$freesrc);
+			]"
+		end
+
+	c_img_load_animation_typed_rw (src: POINTER; freesrc: INTEGER; type: POINTER): POINTER
+		external
+			"C inline use <SDL_image.h>"
+		alias
+			"[
+				return IMG_LoadAnimationTyped_RW ((SDL_RWops*)$src, (int)$freesrc, (char const*)$type);
+			]"
+		end
+
+	c_img_free_animation (anim: POINTER)
+		external
+			"C inline use <SDL_image.h>"
+		alias
+			"[
+				IMG_FreeAnimation ((IMG_Animation*)$anim);
+			]"
+		end
+
+	c_img_load_gifanimation_rw (src: POINTER): POINTER
+		external
+			"C inline use <SDL_image.h>"
+		alias
+			"[
+				return IMG_LoadGIFAnimation_RW ((SDL_RWops*)$src);
 			]"
 		end
 
