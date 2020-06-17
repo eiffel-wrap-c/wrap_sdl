@@ -59,9 +59,26 @@ Using vcpkg (https://github.com/microsoft/vcpkg) tool, you can install lib sdl2 
 	vcpkg install sdl2:x64-windows
 	vcpkg install sdl2-image:x64-windows
 
+On windows you will need to copy `SDL2.lib` to  `PROJECT_PATH\sdl\C\lib` and `SDL2_image.lib` to `PROJECT_PATH\sdl_image\C\lib`
+Be sure to have the dll's on th PATH before to run the example.
+At the moment there is no support for static linking with wrap_sdl project.
+
 ## Status
 
 Work in progress
+
+## Generate the SDL Eiffel wrapper code.
+It's recommended to generate the code yourself instead of use the generated code. To do that just run the following script.
+Before to run it, double check you have the required dependencies.
+
+### Windows
+	install.bat
+
+### Linux
+	./install.sh
+
+
+This script will generate the wrapper and also will compile the C library glue code, required to execute the examples.
 
 
 ## Examples
