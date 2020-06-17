@@ -22,11 +22,13 @@ rm sdl_texture_struct_api.e
 cd ..
 cd ..
 
+cd ./generated_wrapper/eiffel/
 mkdir linux
+
 cp img_animation_struct_api.e ./linux
-cp sdl_image_functions_apie.e ./linux
+cp sdl_image_functions_api.e ./linux
 rm img_animation_struct_api.e
-rm sdl_image_functions_apie.e
+rm sdl_image_functions_api.e
 
 cd ..
 cd ..

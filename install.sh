@@ -2,10 +2,13 @@
 #Script to automate WrapC install process.
 
 echo Generate SDL library
-./sdl/generator.sh
+cd sdl
+./generator.sh
+cd ..
 
 echo Generate SDL image library
-./sdl_image/generator.sh
-
+cd sdl_image
+./generator.sh
+cd ..
 
 
