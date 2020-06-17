@@ -13,7 +13,7 @@
 		</option>
 		<setting name="console_application" value="true"/>
 		<library name="base" location="$ISE_LIBRARY/library/base/base.ecf"/>
-		<library name="sdl2" location="..\..\library\wrap_sdl2.ecf" readonly="false"/>
+		<library name="sdl2" location="..\..\sdl\wrap_sdl2.ecf" readonly="false"/>
 		<cluster name="event_driven" location=".\" recursive="true"/>
 	</target>
 </system>

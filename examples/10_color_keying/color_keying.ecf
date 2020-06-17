@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-21-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-21-0 http://www.eiffel.com/developers/xml/configuration-1-21-0.xsd" name="getting_an_image" uuid="C06F9032-CD41-49AA-B6A6-9BCC32BFD0C2">
-	<target name="getting_an_image">
+<system xmlns="http://www.eiffel.com/developers/xml/configuration-1-21-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.eiffel.com/developers/xml/configuration-1-21-0 http://www.eiffel.com/developers/xml/configuration-1-21-0.xsd" name="color_keying" uuid="9D8896FF-CC23-4EC5-B879-E0D92066E751">
+	<target name="color_keying">
 		<root class="APPLICATION" feature="make"/>
 		<file_rule>
 			<exclude>/CVS$</exclude>
@@ -15,7 +15,8 @@
 		<setting name="total_order_on_reals" value="true"/>
 		<setting name="dead_code_removal" value="feature"/>
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<library name="sdl_image" location="..\..\sdl_image\sdl_image.ecf" readonly="false"/>
 		<library name="sdl2" location="..\..\sdl\wrap_sdl2.ecf" readonly="false"/>
-		<cluster name="getting_an_image" location=".\" recursive="true"/>
+		<cluster name="color_keying" location=".\" recursive="true"/>
 	</target>
 </system>

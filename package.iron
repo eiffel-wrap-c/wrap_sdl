@@ -1,8 +1,5 @@
 package wrap_sdl
 
-project
-	wrap_sdl = "library/wrap_sdl2.ecf"
-
 note
 	title: Eiffel wrap_sdl
 	description: "[
@@ -11,7 +8,7 @@ note
 	Simple DirectMedia Layer is a cross-platform development library designed to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware via OpenGL and Direct3D. It is used by video playback software, emulators, and popular games including Valve's award winning catalog and many Humble Bundle games.
 	]"
 
-	tags: sdl, game, library , wrapc 
+	tags: sdl, sld_image, game, library , wrapc 
 	license: EFL
 	copyright: Copyright (c)  2020 Javier Velilla, Eiffel Software and others.
 	link[license]: "license" "https://github.com/eiffel-wrap-c/wrap_sdl/blob/master/license.lic"
