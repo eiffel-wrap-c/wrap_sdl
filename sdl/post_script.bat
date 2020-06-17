@@ -33,11 +33,15 @@ copy ewg_sdl2_callback_c_glue_code_functions_api.e .\win
 copy sdl_windows_message_hook_dispatcher.e .\win
 copy sdl_error_functions_api.e .\win
 copy sdl_window_flags_enum_api.e .\win
+copy idirect3ddevice9_struct_api.e .\win
+copy sdl_system_functions_api.e .\win
 
 del /f ewg_sdl2_callback_c_glue_code_functions_api.e 
 del /f sdl_windows_message_hook_dispatcher.e
 del /f sdl_error_functions_api.e
 del /f sdl_window_flags_enum_api.e
+del /f idirect3ddevice9_struct_api.e
+del /f sdl_system_functions_api.e
 
 cd ..
 cd ..
