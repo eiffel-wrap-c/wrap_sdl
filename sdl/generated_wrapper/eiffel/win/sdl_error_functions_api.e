@@ -18,15 +18,6 @@ feature -- Access
 			]"
 		end
 
-	sdl_get_error_msg (errstr: POINTER; maxlen: INTEGER): POINTER
-		external
-			"C inline use <SDL.h>"
-		alias
-			"[
-				return SDL_GetErrorMsg ((char*)$errstr, (int)$maxlen);
-			]"
-		end
-
 feature -- Externals
 
 feature -- Externals Address

@@ -90,6 +90,7 @@
 				<exclude>/EIFGENs$</exclude>
 				<exclude>/win$</exclude>
 				<exclude>/linux$</exclude>
+				<exclude>/testing$</exclude>
 			</file_rule>
 		</cluster>
 		<cluster name="generated_win" location="generated_wrapper\eiffel\win" recursive="true">

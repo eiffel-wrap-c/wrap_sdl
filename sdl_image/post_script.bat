@@ -20,5 +20,14 @@ del /f sdl_texture_struct_api.e
 cd ..
 cd ..
 
+cd generated_wrapper/eiffel/
+mkdir win 
+copy sdl_image_functions_api.e .\win
+del /f sdl_image_functions_api.e 
+
+cd ..
+cd ..
+
+
 cd generated_wrapper/c/src/
 finish_freezing -library

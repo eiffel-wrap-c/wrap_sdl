@@ -22,5 +22,16 @@ rm sdl_texture_struct_api.e
 cd ..
 cd ..
 
+mkdir linux
+cp img_animation_struct_api.e ./linux
+cp sdl_image_functions_apie.e ./linux
+rm img_animation_struct_api.e
+rm sdl_image_functions_apie.e
+
+cd ..
+cd ..
+
+
+
 cd generated_wrapper/c/src/
 finish_freezing -library

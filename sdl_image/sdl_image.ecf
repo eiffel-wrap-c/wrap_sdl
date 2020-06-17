@@ -86,9 +86,22 @@
 				<exclude>.git$</exclude>
 				<exclude>.svn$</exclude>
 				<exclude>/c$</exclude>
+				<exclude>/testing$</exclude>
 				<exclude>/include$</exclude>
 				<exclude>/EIFGENs$</exclude>
+				<exclude>/win$</exclude>
+				<exclude>/linux$</exclude>
 			</file_rule>
+		</cluster>
+		<cluster name="generated_win" location="generated_wrapper\eiffel\win" recursive="true">
+			<condition>
+				<platform value="windows"/>
+			</condition>
+		</cluster>
+		<cluster name="generated_linux" location="generated_wrapper\eiffel\linux" recursive="true">
+			<condition>
+				<platform excluded_value="windows"/>
+			</condition>
 		</cluster>
 	</target>
 	<target name="sld_image_tests" extends="sld_image">

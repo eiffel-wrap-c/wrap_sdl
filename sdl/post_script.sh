@@ -37,7 +37,11 @@ if test -f "$FILE"; then
     cp ewg_sdl2_callback_c_glue_code_functions_api.e ./linux
     rm ewg_sdl2_callback_c_glue_code_functions_api.e 
 fi
- 
+cp sdl_error_functions_api.e ./linux
+cp sdl_window_flags_enum_api.e ./linux
+
+rm sdl_error_functions_api.e
+rm sdl_window_flags_enum_api.e
 
 cd ..
 cd ..
