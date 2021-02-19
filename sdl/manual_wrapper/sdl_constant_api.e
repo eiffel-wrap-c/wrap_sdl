@@ -68,6 +68,7 @@ feature -- Access
 
 
 	SDL_KEYDOWN: INTEGER = 0x300
+	SDL_KEYUP: INTEGER = 0x301
 
 
 -- The constant sdl_max_sint8-- needs to be wrapped by hand
