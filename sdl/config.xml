@@ -345,6 +345,24 @@
         </wrapper>
       </rule>
 
+      <rule>
+        <match>
+          <identifier name="SDL_LockSurface" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
+      <rule>
+        <match>
+          <identifier name="SDL_UnlockSurface" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
+
+
      <!-- And the rest should be ignored -->
     <rule>
       <match>

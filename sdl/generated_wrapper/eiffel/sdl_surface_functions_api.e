@@ -16,6 +16,20 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_lock_surface (surface: SDL_SURFACE_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_lock_surface (surface.item)
+		ensure
+			instance_free: class
+		end
+
+	sdl_unlock_surface (surface: SDL_SURFACE_STRUCT_API) 
+		do
+			c_sdl_unlock_surface (surface.item)
+		ensure
+			instance_free: class
+		end
+
 	sdl_load_bmp_rw (src: SDL_RWOPS_STRUCT_API; freesrc: INTEGER): detachable SDL_SURFACE_STRUCT_API 
 		do
 			if attached c_sdl_load_bmp_rw (src.item, freesrc) as l_ptr and then not l_ptr.is_default_pointer then
@@ -79,6 +93,24 @@ feature -- Externals
 		alias
 			"[
 				SDL_FreeSurface ((SDL_Surface*)$surface);
+			]"
+		end
+
+	c_sdl_lock_surface (surface: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_LockSurface ((SDL_Surface*)$surface);
+			]"
+		end
+
+	c_sdl_unlock_surface (surface: POINTER)
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				SDL_UnlockSurface ((SDL_Surface*)$surface);
 			]"
 		end
 
