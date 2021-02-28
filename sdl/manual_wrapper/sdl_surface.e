@@ -19,7 +19,7 @@ inherit
 
 feature	-- Access
 
-	sdl_fill_rect (dst: SDL_SURFACE_STRUCT_API; rect: detachable SDL_RECT_STRUCT_API; color: INTEGER): INTEGER
+	sdl_fill_rect (dst: SDL_SURFACE_STRUCT_API; rect: detachable SDL_RECT_STRUCT_API; color: NATURAL): INTEGER
 		local
 			l_rect: POINTER
 		do
@@ -47,7 +47,7 @@ feature	-- Access
 			instance_free: class
 		end
 
-	sdl_convert_surface (src: SDL_SURFACE_STRUCT_API; fmt: detachable SDL_PIXEL_FORMAT_STRUCT_API; flags: INTEGER): detachable SDL_SURFACE_STRUCT_API
+	sdl_convert_surface (src: SDL_SURFACE_STRUCT_API; fmt: detachable SDL_PIXEL_FORMAT_STRUCT_API; flags: NATURAL): detachable SDL_SURFACE_STRUCT_API
 		local
 			l_fmt_ptr: POINTER
 		do

@@ -16,7 +16,7 @@ inherit
 
 feature -- Access
 
-	sdl_create_window (title: STRING; x: INTEGER; y: INTEGER; w: INTEGER; h: INTEGER; flags: INTEGER): detachable SDL_WINDOW_STRUCT_API
+	sdl_create_window (title: STRING; x: INTEGER; y: INTEGER; w: INTEGER; h: INTEGER; flags: NATURAL): detachable SDL_WINDOW_STRUCT_API
 		local
 			l_str: C_STRING
 			l_ptr: POINTER
