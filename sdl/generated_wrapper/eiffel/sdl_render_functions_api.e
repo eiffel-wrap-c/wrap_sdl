@@ -39,6 +39,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_update_texture (texture: SDL_TEXTURE_STRUCT_API; rect: SDL_RECT_STRUCT_API; pixels: POINTER; pitch: INTEGER): INTEGER 
+		do
+			Result := c_sdl_update_texture (texture.item, rect.item, pixels, pitch)
+		ensure
+			instance_free: class
+		end
+
 	sdl_render_target_supported (renderer: SDL_RENDERER_STRUCT_API): INTEGER 
 		do
 			Result := c_sdl_render_target_supported (renderer.item)
@@ -352,6 +359,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_CreateTextureFromSurface ((SDL_Renderer*)$renderer, (SDL_Surface*)$surface);
+			]"
+		end
+
+	c_sdl_update_texture (texture: POINTER; rect: POINTER; pixels: POINTER; pitch: INTEGER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_UpdateTexture ((SDL_Texture*)$texture, (SDL_Rect const*)$rect, (void const*)$pixels, (int)$pitch);
 			]"
 		end
 
