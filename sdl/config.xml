@@ -329,6 +329,14 @@
         </wrapper>
       </rule>
 
+      <rule>
+        <match>
+          <identifier name="SDL_TextureAccess" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
 
      <!-- And the rest should be ignored -->
     <rule>
