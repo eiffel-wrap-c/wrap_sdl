@@ -1,7 +1,7 @@
 SHELL = /bin/sh
 CC= gcc
 AR = ar rc
-CFLAGS = -O3 -pipe -fPIC -D_GNU_SOURCE -m64  -I/home/eiffel/Eiffel_20.05/studio/spec/linux-x86-64/include -I../../../generated_wrapper/c/include -I../include -I../include/linux -D_REENTRANT -I/usr/local/include/SDL2 -I../../../../../C/include
+CFLAGS = -O3 -pipe -fPIC -D_GNU_SOURCE -m64  -I/opt/eiffel-studio/studio/spec/linux-x86-64/include -I../../../generated_wrapper/c/include -I../include -I../include/linux -I/usr/include/SDL2 -D_REENTRANT  -I../../../../../C/include
 LDFLAGS = -m elf_x86_64
 LIBS = -lm
 MAKE = make

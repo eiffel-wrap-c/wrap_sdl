@@ -4,7 +4,7 @@ OUTDIR= .
 INDIR= .
 CC = $cc
 OUTPUT_CMD = $output_cmd
-CFLAGS = -I"$rt_include" -I $(TOP)$(DIR)include -I $(TOP)$(DIR)$(TOP)$(DIR)$(TOP)$(DIR)generated_wrapper$(DIR)c$(DIR)include -I $(TOP)$(DIR)$(TOP)$(DIR)$(TOP)$(DIR)C$(DIR)includeSDL2  
+CFLAGS = -D _Float128=double -I"$rt_include" -I $(TOP)$(DIR)include -I $(TOP)$(DIR)$(TOP)$(DIR)$(TOP)$(DIR)generated_wrapper$(DIR)c$(DIR)include -I /usr/include/SDL2  
 JCFLAGS = $(CFLAGS) $optimize $ccflags
 JMTCFLAGS = $(CFLAGS) $optimize $mtccflags
 JILCFLAGS = $(CFLAGS) $optimize $mtccflags  -DEIF_IL_DLL

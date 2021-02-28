@@ -14,7 +14,7 @@ $spitshell >Makefile <<!GROK!THIS!
 SHELL = /bin/sh
 CC= $cc
 AR = ar rc
-CFLAGS = $optimize $ccflags $large -I$rt_include -I../../../generated_wrapper/c/include -I../include `pkg-config --cflags sdl_image` -I../../../C/include
+CFLAGS =-D _Float128=double $optimize $ccflags $large -I$rt_include -I../../../generated_wrapper/c/include -I../include `pkg-config --cflags sdl_image` -I /usr/include/SDL2  
 LDFLAGS = $ldflags
 LIBS = $libs
 MAKE = $make

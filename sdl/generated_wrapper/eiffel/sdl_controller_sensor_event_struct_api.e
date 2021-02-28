@@ -4,7 +4,7 @@ note
 
 	generator: "Eiffel Wrapper Generator"
 
-class SDL_SENSOR_EVENT_STRUCT_API
+class SDL_CONTROLLER_SENSOR_EVENT_STRUCT_API
 
 inherit
 
@@ -85,6 +85,26 @@ feature {ANY} -- Member Access
 			which_set: a_value = which
 		end
 
+	sensor: INTEGER
+			-- Access member `sensor`
+		require
+			exists: exists
+		do
+			Result := c_sensor (item)
+		ensure
+			result_correct: Result = c_sensor (item)
+		end
+
+	set_sensor (a_value: INTEGER) 
+			-- Change the value of member `sensor` to `a_value`.
+		require
+			exists: exists
+		do
+			set_c_sensor (item, a_value)
+		ensure
+			sensor_set: a_value = sensor
+		end
+
 	data: POINTER
 			-- Access member `data`
 		require
@@ -95,13 +115,13 @@ feature {ANY} -- Member Access
 			result_correct: Result = c_data (item)
 		end
 
-feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
+feature {NONE} -- Implementation wrapper for struct struct SDL_ControllerSensorEvent
 
 	sizeof_external: INTEGER 
 		external
 			"C inline use <SDL.h>"
 		alias
-			"sizeof(struct SDL_SensorEvent)"
+			"sizeof(struct SDL_ControllerSensorEvent)"
 		end
 
 	c_type (an_item: POINTER): NATURAL
@@ -111,7 +131,7 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->type
+				((struct SDL_ControllerSensorEvent*)$an_item)->type
 			]"
 		end
 
@@ -122,7 +142,7 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->type =  (Uint32)$a_value
+				((struct SDL_ControllerSensorEvent*)$an_item)->type =  (Uint32)$a_value
 			]"
 		ensure
 			type_set: a_value = c_type (an_item)
@@ -135,7 +155,7 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->timestamp
+				((struct SDL_ControllerSensorEvent*)$an_item)->timestamp
 			]"
 		end
 
@@ -146,7 +166,7 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->timestamp =  (Uint32)$a_value
+				((struct SDL_ControllerSensorEvent*)$an_item)->timestamp =  (Uint32)$a_value
 			]"
 		ensure
 			timestamp_set: a_value = c_timestamp (an_item)
@@ -159,7 +179,7 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->which
+				((struct SDL_ControllerSensorEvent*)$an_item)->which
 			]"
 		end
 
@@ -170,10 +190,34 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->which =  (Sint32)$a_value
+				((struct SDL_ControllerSensorEvent*)$an_item)->which =  (SDL_JoystickID)$a_value
 			]"
 		ensure
 			which_set: a_value = c_which (an_item)
+		end
+
+	c_sensor (an_item: POINTER): INTEGER
+		require
+			an_item_not_null: an_item /= default_pointer
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				((struct SDL_ControllerSensorEvent*)$an_item)->sensor
+			]"
+		end
+
+	set_c_sensor (an_item: POINTER; a_value: INTEGER) 
+		require
+			an_item_not_null: an_item /= default_pointer
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				((struct SDL_ControllerSensorEvent*)$an_item)->sensor =  (Sint32)$a_value
+			]"
+		ensure
+			sensor_set: a_value = c_sensor (an_item)
 		end
 
 	c_data (an_item: POINTER): POINTER
@@ -183,7 +227,7 @@ feature {NONE} -- Implementation wrapper for struct struct SDL_SensorEvent
 			"C inline use <SDL.h>"
 		alias
 			"[
-				((struct SDL_SensorEvent*)$an_item)->data
+				((struct SDL_ControllerSensorEvent*)$an_item)->data
 			]"
 		end
 

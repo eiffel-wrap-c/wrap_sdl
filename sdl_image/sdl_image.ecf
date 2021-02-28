@@ -30,7 +30,7 @@
 		</external_include>
 	
 			<!-- Include headers for the C target library -->
-		<external_include location="/usr/local/include/SDL2">
+		<external_include location="/usr/include/SDL2">
 			<condition>
 				<platform excluded_value="windows"/>
 			</condition>		
@@ -66,7 +66,7 @@
 
 
 		<!-- External C library -->
-		<external_object location="/usr/local/lib/libSDL2_image.so">
+		<external_object location="/usr/lib/libSDL2_image.so">
 			<condition>
 				<platform excluded_value="windows"/>
 			</condition>
