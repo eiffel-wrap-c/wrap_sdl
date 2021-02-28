@@ -16,8 +16,14 @@ inherit
 			sdl_upper_blit_scaled as sdl_upper_blit_scaled_api
 		end
 
+feature -- Access
 
-feature	-- Access
+	sdl_must_lock (surface: SDL_SURFACE_STRUCT_API): BOOLEAN
+		do
+			Result := surface.flags.bit_and ({SDL_CONSTANT_API}.SDL_RLEACCEL.to_natural_32) /= 0
+		ensure
+			instance_free: class
+		end
 
 	sdl_fill_rect (dst: SDL_SURFACE_STRUCT_API; rect: detachable SDL_RECT_STRUCT_API; color: NATURAL): INTEGER
 		local
@@ -55,9 +61,8 @@ feature	-- Access
 				l_fmt_ptr := l_fmt.item
 			end
 			if attached c_sdl_convert_surface (src.item, l_fmt_ptr, flags) as l_ptr and then not l_ptr.is_default_pointer then
-				create Result.make_by_pointer ( l_ptr )
+				create Result.make_by_pointer (l_ptr)
 			end
-
 		ensure
 			instance_free: class
 		end
@@ -73,7 +78,6 @@ feature	-- Access
 			if attached dstrect as l_dstrect then
 				l_dstrect_ptr := l_dstrect.item
 			end
-
 			Result := c_sdl_upper_blit_scaled (src.item, l_srcrect_ptr, dst.item, l_dstrect_ptr)
 		ensure
 			instance_free: class
