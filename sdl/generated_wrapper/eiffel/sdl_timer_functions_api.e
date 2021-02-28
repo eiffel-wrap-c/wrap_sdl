@@ -9,6 +9,15 @@ class SDL_TIMER_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_get_ticks: NATURAL
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_GetTicks ();
+			]"
+		end
+
 	sdl_delay (ms: NATURAL)
 		external
 			"C inline use <SDL.h>"

@@ -304,6 +304,14 @@
         </wrapper>
       </rule> 
 
+      <rule>
+        <match>
+          <identifier name="SDL_GetTicks" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
 
 
      <!-- And the rest should be ignored -->
