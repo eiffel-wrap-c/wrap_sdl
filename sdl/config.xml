@@ -321,6 +321,14 @@
       </rule>
 
 
+      <rule>
+        <match>
+          <identifier name="SDL_PixelFormatEnum" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
 
      <!-- And the rest should be ignored -->
     <rule>
