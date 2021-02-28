@@ -19,6 +19,16 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_create_texture (renderer: SDL_RENDERER_STRUCT_API; format: NATURAL; access: INTEGER; w: INTEGER; h: INTEGER): detachable SDL_TEXTURE_STRUCT_API 
+		do
+			if attached c_sdl_create_texture (renderer.item, format, access, w, h) as l_ptr and then not l_ptr.is_default_pointer then
+				create Result.make_by_pointer ( l_ptr )
+			end
+
+		ensure
+			instance_free: class
+		end
+
 	sdl_create_texture_from_surface (renderer: SDL_RENDERER_STRUCT_API; surface: SDL_SURFACE_STRUCT_API): detachable SDL_TEXTURE_STRUCT_API 
 		do
 			if attached c_sdl_create_texture_from_surface (renderer.item, surface.item) as l_ptr and then not l_ptr.is_default_pointer then
@@ -324,6 +334,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_CreateRenderer ((SDL_Window*)$window, (int)$index, (Uint32)$flags);
+			]"
+		end
+
+	c_sdl_create_texture (renderer: POINTER; format: NATURAL; access: INTEGER; w: INTEGER; h: INTEGER): POINTER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_CreateTexture ((SDL_Renderer*)$renderer, (Uint32)$format, (int)$access, (int)$w, (int)$h);
 			]"
 		end
 

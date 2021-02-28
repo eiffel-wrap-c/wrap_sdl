@@ -274,6 +274,14 @@
 
       <rule>
         <match>
+          <identifier name="SDL_CreateTexture" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
+      <rule>
+        <match>
           <identifier name="SDL_DestroyTexture"/>
         </match>
         <wrapper type="default">

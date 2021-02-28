@@ -62,7 +62,6 @@ feature	-- Access
 			instance_free: class
 		end
 
-
 	sdl_upper_blit_scaled (src: SDL_SURFACE_STRUCT_API; srcrect: detachable SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: detachable SDL_RECT_STRUCT_API): INTEGER
 		local
 			l_srcrect_ptr: POINTER
