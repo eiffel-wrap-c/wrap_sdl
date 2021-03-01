@@ -9,6 +9,13 @@ class SDL_PIXELS_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_set_palette_colors (palette: SDL_PALETTE_STRUCT_API; colors: SDL_COLOR_STRUCT_API; firstcolor: INTEGER; ncolors: INTEGER): INTEGER 
+		do
+			Result := c_sdl_set_palette_colors (palette.item, colors.item, firstcolor, ncolors)
+		ensure
+			instance_free: class
+		end
+
 	sdl_map_rgb (format: SDL_PIXEL_FORMAT_STRUCT_API; r: CHARACTER; g: CHARACTER; b: CHARACTER): NATURAL 
 		do
 			Result := c_sdl_map_rgb (format.item, r, g, b)
@@ -17,6 +24,15 @@ feature -- Access
 		end
 
 feature -- Externals
+
+	c_sdl_set_palette_colors (palette: POINTER; colors: POINTER; firstcolor: INTEGER; ncolors: INTEGER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_SetPaletteColors ((SDL_Palette*)$palette, (SDL_Color const*)$colors, (int)$firstcolor, (int)$ncolors);
+			]"
+		end
 
 	c_sdl_map_rgb (format: POINTER; r: CHARACTER; g: CHARACTER; b: CHARACTER): NATURAL
 		external
