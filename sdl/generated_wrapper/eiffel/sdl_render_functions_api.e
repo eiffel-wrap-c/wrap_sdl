@@ -53,6 +53,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_set_render_target (renderer: SDL_RENDERER_STRUCT_API; texture: SDL_TEXTURE_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_set_render_target (renderer.item, texture.item)
+		ensure
+			instance_free: class
+		end
+
 	sdl_render_set_logical_size (renderer: SDL_RENDERER_STRUCT_API; w: INTEGER; h: INTEGER): INTEGER 
 		do
 			Result := c_sdl_render_set_logical_size (renderer.item, w, h)
@@ -377,6 +384,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_RenderTargetSupported ((SDL_Renderer*)$renderer);
+			]"
+		end
+
+	c_sdl_set_render_target (renderer: POINTER; texture: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_SetRenderTarget ((SDL_Renderer*)$renderer, (SDL_Texture*)$texture);
 			]"
 		end
 

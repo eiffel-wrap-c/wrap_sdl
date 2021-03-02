@@ -385,6 +385,14 @@
         </wrapper>
       </rule>
 
+      <rule>
+        <match>
+          <identifier name="SDL_SetRenderTarget" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
 
 
      <!-- And the rest should be ignored -->
