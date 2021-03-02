@@ -9,6 +9,15 @@ class SDL_SURFACE_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_create_rgbsurface (flags: NATURAL; width: INTEGER; height: INTEGER; depth: INTEGER; rmask: NATURAL; gmask: NATURAL; bmask: NATURAL; amask: NATURAL): POINTER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_CreateRGBSurface ((Uint32)$flags, (int)$width, (int)$height, (int)$depth, (Uint32)$rmask, (Uint32)$gmask, (Uint32)$bmask, (Uint32)$amask);
+			]"
+		end
+
 	sdl_free_surface (surface: SDL_SURFACE_STRUCT_API) 
 		do
 			c_sdl_free_surface (surface.item)
