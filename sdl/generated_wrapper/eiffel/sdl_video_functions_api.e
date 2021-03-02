@@ -9,6 +9,13 @@ class SDL_VIDEO_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_get_window_pixel_format (window: SDL_WINDOW_STRUCT_API): NATURAL 
+		do
+			Result := c_sdl_get_window_pixel_format (window.item)
+		ensure
+			instance_free: class
+		end
+
 	sdl_create_window (title: POINTER; x: INTEGER; y: INTEGER; w: INTEGER; h: INTEGER; flags: NATURAL): POINTER
 		external
 			"C inline use <SDL.h>"
@@ -43,6 +50,15 @@ feature -- Access
 		end
 
 feature -- Externals
+
+	c_sdl_get_window_pixel_format (window: POINTER): NATURAL
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_GetWindowPixelFormat ((SDL_Window*)$window);
+			]"
+		end
 
 	c_sdl_get_window_surface (window: POINTER): POINTER
 		external
