@@ -80,6 +80,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_lower_blit (src: SDL_SURFACE_STRUCT_API; srcrect: SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_lower_blit (src.item, srcrect.item, dst.item, dstrect.item)
+		ensure
+			instance_free: class
+		end
+
 	sdl_upper_blit_scaled (src: SDL_SURFACE_STRUCT_API; srcrect: SDL_RECT_STRUCT_API; dst: SDL_SURFACE_STRUCT_API; dstrect: SDL_RECT_STRUCT_API): INTEGER 
 		do
 			Result := c_sdl_upper_blit_scaled (src.item, srcrect.item, dst.item, dstrect.item)
@@ -165,6 +172,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_UpperBlit ((SDL_Surface*)$src, (SDL_Rect const*)$srcrect, (SDL_Surface*)$dst, (SDL_Rect*)$dstrect);
+			]"
+		end
+
+	c_sdl_lower_blit (src: POINTER; srcrect: POINTER; dst: POINTER; dstrect: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_LowerBlit ((SDL_Surface*)$src, (SDL_Rect*)$srcrect, (SDL_Surface*)$dst, (SDL_Rect*)$dstrect);
 			]"
 		end
 
