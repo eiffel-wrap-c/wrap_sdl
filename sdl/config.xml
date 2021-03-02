@@ -393,6 +393,14 @@
         </wrapper>
       </rule>
 
+      <rule>
+        <match>
+          <identifier name="SDL_PixelFormatEnumToMasks" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
 
 
      <!-- And the rest should be ignored -->

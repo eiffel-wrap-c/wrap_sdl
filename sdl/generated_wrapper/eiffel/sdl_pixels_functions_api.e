@@ -9,6 +9,13 @@ class SDL_PIXELS_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_pixel_format_enum_to_masks (format: NATURAL; bpp: TYPED_POINTER [INTEGER]; rmask: POINTER; gmask: POINTER; bmask: POINTER; amask: POINTER): INTEGER 
+		do
+			Result := c_sdl_pixel_format_enum_to_masks (format, bpp, rmask, gmask, bmask, amask)
+		ensure
+			instance_free: class
+		end
+
 	sdl_set_palette_colors (palette: SDL_PALETTE_STRUCT_API; colors: SDL_COLOR_STRUCT_API; firstcolor: INTEGER; ncolors: INTEGER): INTEGER 
 		do
 			Result := c_sdl_set_palette_colors (palette.item, colors.item, firstcolor, ncolors)
@@ -24,6 +31,15 @@ feature -- Access
 		end
 
 feature -- Externals
+
+	c_sdl_pixel_format_enum_to_masks (format: NATURAL; bpp: TYPED_POINTER [INTEGER]; rmask: POINTER; gmask: POINTER; bmask: POINTER; amask: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_PixelFormatEnumToMasks ((Uint32)$format, (int*)$bpp, (Uint32*)$rmask, (Uint32*)$gmask, (Uint32*)$bmask, (Uint32*)$amask);
+			]"
+		end
 
 	c_sdl_set_palette_colors (palette: POINTER; colors: POINTER; firstcolor: INTEGER; ncolors: INTEGER): INTEGER
 		external
