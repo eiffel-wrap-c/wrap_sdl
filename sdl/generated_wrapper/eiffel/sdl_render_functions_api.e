@@ -19,6 +19,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_get_renderer_output_size (renderer: SDL_RENDERER_STRUCT_API; w: TYPED_POINTER [INTEGER]; h: TYPED_POINTER [INTEGER]): INTEGER 
+		do
+			Result := c_sdl_get_renderer_output_size (renderer.item, w, h)
+		ensure
+			instance_free: class
+		end
+
 	sdl_create_texture (renderer: SDL_RENDERER_STRUCT_API; format: NATURAL; access: INTEGER; w: INTEGER; h: INTEGER): detachable SDL_TEXTURE_STRUCT_API 
 		do
 			if attached c_sdl_create_texture (renderer.item, format, access, w, h) as l_ptr and then not l_ptr.is_default_pointer then
@@ -348,6 +355,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_CreateRenderer ((SDL_Window*)$window, (int)$index, (Uint32)$flags);
+			]"
+		end
+
+	c_sdl_get_renderer_output_size (renderer: POINTER; w: TYPED_POINTER [INTEGER]; h: TYPED_POINTER [INTEGER]): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_GetRendererOutputSize ((SDL_Renderer*)$renderer, (int*)$w, (int*)$h);
 			]"
 		end
 
