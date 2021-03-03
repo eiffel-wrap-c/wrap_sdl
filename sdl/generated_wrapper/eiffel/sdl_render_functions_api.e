@@ -19,6 +19,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_get_renderer_info (renderer: SDL_RENDERER_STRUCT_API; info: SDL_RENDERER_INFO_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_get_renderer_info (renderer.item, info.item)
+		ensure
+			instance_free: class
+		end
+
 	sdl_get_renderer_output_size (renderer: SDL_RENDERER_STRUCT_API; w: TYPED_POINTER [INTEGER]; h: TYPED_POINTER [INTEGER]): INTEGER 
 		do
 			Result := c_sdl_get_renderer_output_size (renderer.item, w, h)
@@ -355,6 +362,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_CreateRenderer ((SDL_Window*)$window, (int)$index, (Uint32)$flags);
+			]"
+		end
+
+	c_sdl_get_renderer_info (renderer: POINTER; info: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_GetRendererInfo ((SDL_Renderer*)$renderer, (SDL_RendererInfo*)$info);
 			]"
 		end
 
