@@ -11,4 +11,7 @@ cd %cd%/sdl_image
 call generator.bat
 cd ..
 
-
+echo Generate SDL mixer library
+cd %cd%/sdl2_mixer
+call generator.bat
+cd ..

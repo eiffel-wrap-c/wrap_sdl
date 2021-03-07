@@ -11,4 +11,7 @@ cd sdl_image
 ./generator.sh
 cd ..
 
-
+echo Generate SDL mixer library
+cd sdl2_mixer
+./generator.sh
+cd ..
