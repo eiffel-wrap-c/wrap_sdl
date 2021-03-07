@@ -9,6 +9,15 @@ class SDL_AUDIO_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_pause_audio (pause_on: INTEGER)
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				SDL_PauseAudio ((int)$pause_on);
+			]"
+		end
+
 	sdl_load_wav_rw (src: SDL_RWOPS_STRUCT_API; freesrc: INTEGER; spec: SDL_AUDIO_SPEC_STRUCT_API; audio_buf: POINTER; audio_len: POINTER): detachable SDL_AUDIO_SPEC_STRUCT_API 
 		do
 			if attached c_sdl_load_wav_rw (src.item, freesrc, spec.item, audio_buf, audio_len) as l_ptr and then not l_ptr.is_default_pointer then
