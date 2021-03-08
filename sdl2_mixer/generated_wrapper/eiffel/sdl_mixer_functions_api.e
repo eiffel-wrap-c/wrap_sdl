@@ -18,6 +18,15 @@ feature -- Access
 			]"
 		end
 
+	mix_allocate_channels (numchans: INTEGER): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_AllocateChannels ((int)$numchans);
+			]"
+		end
+
 	mix_query_spec (frequency: TYPED_POINTER [INTEGER]; format: POINTER; channels: TYPED_POINTER [INTEGER]): INTEGER 
 		do
 			Result := c_mix_query_spec (frequency, format, channels)
