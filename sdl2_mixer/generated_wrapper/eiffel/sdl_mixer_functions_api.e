@@ -18,7 +18,23 @@ feature -- Access
 			]"
 		end
 
+	mix_query_spec (frequency: TYPED_POINTER [INTEGER]; format: POINTER; channels: TYPED_POINTER [INTEGER]): INTEGER 
+		do
+			Result := c_mix_query_spec (frequency, format, channels)
+		ensure
+			instance_free: class
+		end
+
 feature -- Externals
+
+	c_mix_query_spec (frequency: TYPED_POINTER [INTEGER]; format: POINTER; channels: TYPED_POINTER [INTEGER]): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_QuerySpec ((int*)$frequency, (Uint16*)$format, (int*)$channels);
+			]"
+		end
 
 feature -- Externals Address
 
