@@ -34,6 +34,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	mix_play_channel_timed (channel: INTEGER; chunk: MIX_CHUNK_STRUCT_API; loops: INTEGER; ticks: INTEGER): INTEGER 
+		do
+			Result := c_mix_play_channel_timed (channel, chunk.item, loops, ticks)
+		ensure
+			instance_free: class
+		end
+
 feature -- Externals
 
 	c_mix_query_spec (frequency: TYPED_POINTER [INTEGER]; format: POINTER; channels: TYPED_POINTER [INTEGER]): INTEGER
@@ -42,6 +49,15 @@ feature -- Externals
 		alias
 			"[
 				return Mix_QuerySpec ((int*)$frequency, (Uint16*)$format, (int*)$channels);
+			]"
+		end
+
+	c_mix_play_channel_timed (channel: INTEGER; chunk: POINTER; loops: INTEGER; ticks: INTEGER): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_PlayChannelTimed ((int)$channel, (Mix_Chunk*)$chunk, (int)$loops, (int)$ticks);
 			]"
 		end
 
