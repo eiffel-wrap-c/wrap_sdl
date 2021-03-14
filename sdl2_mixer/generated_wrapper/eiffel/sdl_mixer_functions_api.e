@@ -75,6 +75,15 @@ feature -- Access
 			]"
 		end
 
+	mix_set_music_cmd (command: POINTER): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_SetMusicCMD ((char const*)$command);
+			]"
+		end
+
 	mix_close_audio
 		external
 			"C inline use <SDL_mixer.h>"
