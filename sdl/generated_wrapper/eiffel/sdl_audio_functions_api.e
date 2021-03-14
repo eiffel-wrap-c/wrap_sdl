@@ -35,6 +35,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_convert_audio (cvt: SDL_AUDIO_CVT_STRUCT_API): INTEGER 
+		do
+			Result := c_sdl_convert_audio (cvt.item)
+		ensure
+			instance_free: class
+		end
+
 feature -- Externals
 
 	c_sdl_load_wav_rw (src: POINTER; freesrc: INTEGER; spec: POINTER; audio_buf: POINTER; audio_len: POINTER): POINTER
@@ -52,6 +59,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_BuildAudioCVT ((SDL_AudioCVT*)$cvt, (SDL_AudioFormat)$src_format, (Uint8)$src_channels, (int)$src_rate, (SDL_AudioFormat)$dst_format, (Uint8)$dst_channels, (int)$dst_rate);
+			]"
+		end
+
+	c_sdl_convert_audio (cvt: POINTER): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_ConvertAudio ((SDL_AudioCVT*)$cvt);
 			]"
 		end
 
