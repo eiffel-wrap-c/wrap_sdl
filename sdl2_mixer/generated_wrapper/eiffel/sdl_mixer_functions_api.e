@@ -48,6 +48,15 @@ feature -- Access
 			instance_free: class
 		end
 
+	mix_close_audio
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				Mix_CloseAudio ();
+			]"
+		end
+
 feature -- Externals
 
 	c_mix_query_spec (frequency: TYPED_POINTER [INTEGER]; format: POINTER; channels: TYPED_POINTER [INTEGER]): INTEGER
