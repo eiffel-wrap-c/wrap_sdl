@@ -16,5 +16,12 @@ feature
 			"AUDIO_S16SYS"
 		end
 
+	audio_u8: INTEGER_32
+		external
+			"C inline use <SDL.h>"
+		alias
+			"AUDIO_U8"
+		end
+
 
 end
