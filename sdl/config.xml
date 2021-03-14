@@ -443,6 +443,14 @@
         </wrapper>
       </rule>
 
+      <rule>
+        <match>
+          <identifier name="SDL_BuildAudioCVT" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
 
      <!-- And the rest should be ignored -->
     <rule>
