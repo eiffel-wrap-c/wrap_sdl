@@ -48,6 +48,15 @@ feature -- Access
 			instance_free: class
 		end
 
+	mix_playing (channel: INTEGER): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_Playing ((int)$channel);
+			]"
+		end
+
 	mix_close_audio
 		external
 			"C inline use <SDL_mixer.h>"
