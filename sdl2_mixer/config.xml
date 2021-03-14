@@ -94,6 +94,14 @@
       </wrapper>
     </rule>
 
+    <rule>
+      <match>
+        <identifier name="MIX_InitFlags" />
+      </match>
+      <wrapper type="default">
+      </wrapper>
+    </rule>
+
 
       <!-- And the rest should be ignored -->
     <rule>
