@@ -86,6 +86,14 @@
       </wrapper>
     </rule>
 
+    <rule>
+      <match>
+        <identifier name="Mix_Init" />
+      </match>
+      <wrapper type="default">
+      </wrapper>
+    </rule>
+
 
       <!-- And the rest should be ignored -->
     <rule>

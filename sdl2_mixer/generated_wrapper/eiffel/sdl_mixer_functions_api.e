@@ -9,6 +9,15 @@ class SDL_MIXER_FUNCTIONS_API
 
 feature -- Access
 
+	mix_init (flags: INTEGER): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_Init ((int)$flags);
+			]"
+		end
+
 	mix_open_audio_device (frequency: INTEGER; format: NATURAL; channels: INTEGER; chunksize: INTEGER; device: POINTER; allowed_changes: INTEGER): INTEGER
 		external
 			"C inline use <SDL_mixer.h>"
