@@ -57,6 +57,13 @@ feature -- Access
 			instance_free: class
 		end
 
+	mix_play_music (music: MIX_MUSIC_STRUCT_API; loops: INTEGER): INTEGER 
+		do
+			Result := c_mix_play_music (music.item, loops)
+		ensure
+			instance_free: class
+		end
+
 	mix_halt_channel (channel: INTEGER): INTEGER
 		external
 			"C inline use <SDL_mixer.h>"
@@ -119,6 +126,15 @@ feature -- Externals
 		alias
 			"[
 				return Mix_PlayChannelTimed ((int)$channel, (Mix_Chunk*)$chunk, (int)$loops, (int)$ticks);
+			]"
+		end
+
+	c_mix_play_music (music: POINTER; loops: INTEGER): INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_PlayMusic ((Mix_Music*)$music, (int)$loops);
 			]"
 		end
 
