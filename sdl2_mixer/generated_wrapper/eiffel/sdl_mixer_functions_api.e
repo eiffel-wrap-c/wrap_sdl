@@ -43,6 +43,15 @@ feature -- Access
 			instance_free: class
 		end
 
+	mix_load_mus (file: POINTER): POINTER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_LoadMUS ((char const*)$file);
+			]"
+		end
+
 	mix_set_panning (channel: INTEGER; left: CHARACTER; right: CHARACTER): INTEGER 
 		do
 			Result := c_mix_set_panning (channel, left, right)

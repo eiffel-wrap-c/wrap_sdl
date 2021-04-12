@@ -10,6 +10,9 @@ class
 inherit
 
 	SDL_MIXER_FUNCTIONS_API
+		rename
+			mix_load_mus as mix_load_mus_api
+		end
 
 feature
 
@@ -23,6 +26,18 @@ feature
 	mix_max_volume: like {SDL_CONSTANT_API}.sdl_mix_maxvolume
 		do
 			Result := {SDL_CONSTANT_API}.sdl_mix_maxvolume
+		ensure
+			instance_free: class
+		end
+
+	mix_load_mus (file: STRING): detachable MIX_MUSIC_STRUCT_API
+		local
+			p: POINTER
+		do
+			p := mix_load_mus_api ((create {C_STRING}.make (file)).item)
+			if p /= default_pointer then
+				create Result.make_by_pointer (p)
+			end
 		ensure
 			instance_free: class
 		end
