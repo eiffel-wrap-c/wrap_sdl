@@ -52,6 +52,13 @@ feature -- Access
 			]"
 		end
 
+	mix_free_music (music: MIX_MUSIC_STRUCT_API) 
+		do
+			c_mix_free_music (music.item)
+		ensure
+			instance_free: class
+		end
+
 	mix_set_panning (channel: INTEGER; left: CHARACTER; right: CHARACTER): INTEGER 
 		do
 			Result := c_mix_set_panning (channel, left, right)
@@ -135,6 +142,15 @@ feature -- Externals
 		alias
 			"[
 				return Mix_QuerySpec ((int*)$frequency, (Uint16*)$format, (int*)$channels);
+			]"
+		end
+
+	c_mix_free_music (music: POINTER)
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				Mix_FreeMusic ((Mix_Music*)$music);
 			]"
 		end
 

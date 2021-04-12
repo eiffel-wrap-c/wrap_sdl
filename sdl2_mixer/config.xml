@@ -136,6 +136,14 @@
 
     <rule>
       <match>
+        <identifier name="Mix_FreeMusic" />
+      </match>
+      <wrapper type="default">
+      </wrapper>
+    </rule>
+
+    <rule>
+      <match>
         <identifier name="Mix_VolumeMusic" />
       </match>
       <wrapper type="default">
