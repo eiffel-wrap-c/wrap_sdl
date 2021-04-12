@@ -11,7 +11,8 @@ inherit
 
 	SDL_MIXER_FUNCTIONS_API
 		rename
-			mix_load_mus as mix_load_mus_api
+			mix_load_mus as mix_load_mus_api,
+			mix_playing_music as mix_playing_music_api
 		end
 
 feature
@@ -38,6 +39,13 @@ feature
 			if p /= default_pointer then
 				create Result.make_by_pointer (p)
 			end
+		ensure
+			instance_free: class
+		end
+
+	mix_playing_music: BOOLEAN
+		do
+			Result := mix_playing_music_api /= 0
 		ensure
 			instance_free: class
 		end

@@ -116,6 +116,15 @@ feature -- Access
 			]"
 		end
 
+	mix_playing_music: INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_PlayingMusic ();
+			]"
+		end
+
 	mix_set_music_cmd (command: POINTER): INTEGER
 		external
 			"C inline use <SDL_mixer.h>"

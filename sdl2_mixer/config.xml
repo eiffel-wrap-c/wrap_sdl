@@ -150,6 +150,14 @@
       </wrapper>
     </rule>
 
+    <rule>
+      <match>
+        <identifier name="Mix_PlayingMusic" />
+      </match>
+      <wrapper type="default">
+      </wrapper>
+    </rule>
+
 
       <!-- And the rest should be ignored -->
     <rule>
