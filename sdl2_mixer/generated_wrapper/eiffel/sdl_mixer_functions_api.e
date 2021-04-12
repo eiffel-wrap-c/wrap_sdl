@@ -82,6 +82,15 @@ feature -- Access
 			]"
 		end
 
+	mix_halt_music: INTEGER
+		external
+			"C inline use <SDL_mixer.h>"
+		alias
+			"[
+				return Mix_HaltMusic ();
+			]"
+		end
+
 	mix_playing (channel: INTEGER): INTEGER
 		external
 			"C inline use <SDL_mixer.h>"
