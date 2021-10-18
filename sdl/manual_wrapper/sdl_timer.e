@@ -19,4 +19,13 @@ feature
 			]"
 		end
 
+	sdl_get_performance_counter: NATURAL_64
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_GetPerformanceCounter ();
+			]"
+		end
+
 end
