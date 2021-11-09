@@ -331,6 +331,14 @@
 
       <rule>
         <match>
+          <identifier name="SDL_Keymod" />
+        </match>
+        <wrapper type="default">
+        </wrapper>
+      </rule>
+
+      <rule>
+        <match>
           <identifier name="SDL_TextureAccess" />
         </match>
         <wrapper type="default">
