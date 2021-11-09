@@ -70,6 +70,11 @@ feature -- Access
 	SDL_KEYDOWN: INTEGER = 0x300
 	SDL_KEYUP: INTEGER = 0x301
 
+	SDL_MOUSEMOTION: INTEGER = 0x400
+	SDL_MOUSEBUTTONDOWN: INTEGER = 0x401
+	SDL_MOUSEBUTTONUP: INTEGER = 0x302
+	SDL_MOUSEWHEEL: INTEGER = 0x303
+
 
 -- The constant sdl_max_sint8-- needs to be wrapped by hand
 -- Check the definition at -- c:\\home\\test\\wrap_sdl2\\library\\c\\include\\sdl2\\SDL_stdinc.h
