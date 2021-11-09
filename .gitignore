@@ -2,3 +2,6 @@ EIFGENs
 *.swp
 *.rc
 *.a
+SDL_cpp.h
+SDL_mixer_cpp.h
+SDL_image_cpp.h
