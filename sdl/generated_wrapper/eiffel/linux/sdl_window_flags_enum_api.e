@@ -6,7 +6,7 @@ feature {ANY}
 	is_valid_enum (a_value: INTEGER): BOOLEAN 
 			-- Is `a_value' a valid integer code for this enum ?
 		do
-			Result := a_value = sdl_window_fullscreen or a_value = sdl_window_opengl or a_value = sdl_window_shown or a_value = sdl_window_hidden or a_value = sdl_window_borderless or a_value = sdl_window_resizable or a_value = sdl_window_minimized or a_value = sdl_window_maximized or a_value = sdl_window_input_grabbed or a_value = sdl_window_input_focus or a_value = sdl_window_mouse_focus or a_value = sdl_window_fullscreen_desktop or a_value = sdl_window_foreign or a_value = sdl_window_allow_highdpi or a_value = sdl_window_mouse_capture or a_value = sdl_window_always_on_top or a_value = sdl_window_skip_taskbar or a_value = sdl_window_utility or a_value = sdl_window_tooltip or a_value = sdl_window_popup_menu or a_value = sdl_window_vulkan or a_value = sdl_window_metal
+			Result := a_value = sdl_window_fullscreen or a_value = sdl_window_opengl or a_value = sdl_window_shown or a_value = sdl_window_hidden or a_value = sdl_window_borderless or a_value = sdl_window_resizable or a_value = sdl_window_minimized or a_value = sdl_window_maximized or a_value = sdl_window_mouse_grabbed or a_value = sdl_window_input_focus or a_value = sdl_window_mouse_focus or a_value = sdl_window_fullscreen_desktop or a_value = sdl_window_foreign or a_value = sdl_window_allow_highdpi or a_value = sdl_window_mouse_capture or a_value = sdl_window_always_on_top or a_value = sdl_window_skip_taskbar or a_value = sdl_window_utility or a_value = sdl_window_tooltip or a_value = sdl_window_popup_menu or a_value = sdl_window_keyboard_grabbed or a_value = sdl_window_vulkan or a_value = sdl_window_metal or a_value = sdl_window_input_grabbed
 		end
 
 	sdl_window_fullscreen: INTEGER 
@@ -65,11 +65,11 @@ feature {ANY}
 			"SDL_WINDOW_MAXIMIZED"
 		end
 
-	sdl_window_input_grabbed: INTEGER 
+	sdl_window_mouse_grabbed: INTEGER 
 		external
 			"C inline use <SDL.h>"
 		alias
-			"SDL_WINDOW_INPUT_GRABBED"
+			"SDL_WINDOW_MOUSE_GRABBED"
 		end
 
 	sdl_window_input_focus: INTEGER 
@@ -149,6 +149,13 @@ feature {ANY}
 			"SDL_WINDOW_POPUP_MENU"
 		end
 
+	sdl_window_keyboard_grabbed: INTEGER 
+		external
+			"C inline use <SDL.h>"
+		alias
+			"SDL_WINDOW_KEYBOARD_GRABBED"
+		end
+
 	sdl_window_vulkan: INTEGER 
 		external
 			"C inline use <SDL.h>"
@@ -161,6 +168,13 @@ feature {ANY}
 			"C inline use <SDL.h>"
 		alias
 			"SDL_WINDOW_METAL"
+		end
+
+	sdl_window_input_grabbed: INTEGER 
+		external
+			"C inline use <SDL.h>"
+		alias
+			"SDL_WINDOW_INPUT_GRABBED"
 		end
 
 end

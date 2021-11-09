@@ -18,7 +18,7 @@
      
       <rule>
         <match>
-          <identifier name="SDL_.*Event"/>
+          <identifier name="SDL_.*Events?"/>
         </match>
         <wrapper type="default">
         </wrapper>

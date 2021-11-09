@@ -9,6 +9,22 @@ class SDL_EVENTS_FUNCTIONS_API
 
 feature -- Access
 
+	sdl_pump_events
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				SDL_PumpEvents ();
+			]"
+		end
+
+	sdl_peep_events (events: SDL_EVENT_UNION_API; numevents: INTEGER; action: INTEGER; mintype: NATURAL; maxtype: NATURAL): INTEGER 
+		do
+			Result := c_sdl_peep_events (events.item, numevents, action, mintype, maxtype)
+		ensure
+			instance_free: class
+		end
+
 	sdl_has_event (type: NATURAL): INTEGER
 		external
 			"C inline use <SDL.h>"
@@ -18,12 +34,30 @@ feature -- Access
 			]"
 		end
 
+	sdl_has_events (mintype: NATURAL; maxtype: NATURAL): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_HasEvents ((Uint32)$mintype, (Uint32)$maxtype);
+			]"
+		end
+
 	sdl_flush_event (type: NATURAL)
 		external
 			"C inline use <SDL.h>"
 		alias
 			"[
 				SDL_FlushEvent ((Uint32)$type);
+			]"
+		end
+
+	sdl_flush_events (mintype: NATURAL; maxtype: NATURAL)
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				SDL_FlushEvents ((Uint32)$mintype, (Uint32)$maxtype);
 			]"
 		end
 
@@ -48,7 +82,32 @@ feature -- Access
 			instance_free: class
 		end
 
+	sdl_filter_events (filter: POINTER; userdata: POINTER) 
+		do
+			c_sdl_filter_events (filter, userdata)
+		ensure
+			instance_free: class
+		end
+
+	sdl_register_events (numevents: INTEGER): NATURAL
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_RegisterEvents ((int)$numevents);
+			]"
+		end
+
 feature -- Externals
+
+	c_sdl_peep_events (events: POINTER; numevents: INTEGER; action: INTEGER; mintype: NATURAL; maxtype: NATURAL): INTEGER
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				return SDL_PeepEvents ((SDL_Event*)$events, (int)$numevents, (SDL_eventaction)$action, (Uint32)$mintype, (Uint32)$maxtype);
+			]"
+		end
 
 	c_sdl_poll_event (event: POINTER): INTEGER
 		external
@@ -74,6 +133,15 @@ feature -- Externals
 		alias
 			"[
 				return SDL_PushEvent ((SDL_Event*)$event);
+			]"
+		end
+
+	c_sdl_filter_events (filter: POINTER; userdata: POINTER)
+		external
+			"C inline use <SDL.h>"
+		alias
+			"[
+				SDL_FilterEvents ((SDL_EventFilter)$filter, (void*)$userdata);
 			]"
 		end
 
